@@ -1,0 +1,14 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: elige_tu_escuela_development
+  pool: 5
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: elige_tu_escuela_test
+  pool: 5
+  password:
