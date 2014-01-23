@@ -1,0 +1,9 @@
+es:
+  forms:
+    search:
+      address_placeholder: 'Nombre de calle y número'
+      suburb_placeholder: 'Colonia'
+      zip_code_placeholder: 'C.P.'
+      grade: 'Nivel educativo'
+  helpers:
+    search: 'Buscar'

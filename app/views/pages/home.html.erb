@@ -1,0 +1,47 @@
+<h1>Bienvenido a las preinscripciones en escuelas de Sinaloa</h1>
+
+<p>Elige Tu Escuela es una nueva aplicación para el Estado de Sinaloa que permite a padres de familia consultar</p>
+
+<hr/>
+
+<div>
+  <h2>Paso 1: Descubre tus escuelas</h2>
+  <p>El primer paso es encontrar tus escuelas cercanas con cupo disponible en las cuales tu hijo es elegible</p>
+  <!-- Search form -->
+  <%= form_tag '#', method: :get do %>
+    <%= text_field_tag :domicilio, nil, placeholder: t('forms.search.address_placeholder') %>
+    <%= text_field_tag :colonia, nil, placeholder: t('forms.search.suburb_placeholder') %>
+    <%= text_field_tag :codigo_postal, nil, placeholder: t('forms.search.zip_code_placeholder') %>
+    <%= select_tag :ciudad, options_for_select(['Culiacán'], 'Culiacán'), disabled: true %>
+    <%= select_tag :nivel_educativo, options_for_select([]), prompt: t('forms.search.grade') %>
+    <%= submit_tag t('helpers.search') %>
+  <% end %>
+  <!-- /End search form -->
+</div>
+
+<div>
+  <h2>Paso 2: Preinscripción</h2>
+  <p>Las preinscripciones inician el 4 de febrero.</p>
+  <p>El proceso es en 3 fases</p>
+  <ul>
+    <li>Fase 1 - Estudiantes con hermanos en la escuela</li>
+    <li>Fase 2 - Cercanía a la escuela elegible</li>
+    <li>Fase 3 - Libre</li>
+  </ul>
+</div>
+
+<div>
+  <h2>Paso 2: Preinscripción</h2>
+  <p>Ten listos todos los papeles necesarios para inscribir oficialemente a tu hijo:</p>
+  <ul>
+    <li>Acta de nacimiento</li>
+    <li>Comprobante de domicilio</li>
+    <li>6 Fotografías a color tamano infantil</li>
+  </ul>
+</div>
+
+<div>
+  <h2>Paso 4: ¡A clases!</h2>
+  <p>¡Listo para comenzar las clases!</p>
+  <p>Para cualquier duda, contacta a tu director.</p>
+</div>
