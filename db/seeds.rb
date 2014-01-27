@@ -29,18 +29,19 @@ response['localidades']['148890']['datos_escuelas'].each do |key, val|
     latitude: val['latitud'],
     kind: 'Pública',
     state_rank: rand(1..1055),
-    state_rank: rand(1..1055),
+    city_rank: rand(1..1055),
     total_students: rand(300..500),
     total_evaluated_students: rand(300..500),
     educational_semaphore: 'De panzaso',
     total_teachers: rand(1..30),
-    budget: '1000000.00'
+    budget: '1000000.00',
+    availability: rand(0..100)
   }
   School.create(values)
 end
 
 puts 'Updating schools with grade...'
-School.limit(School.count).each { |s| s.update_attribute(:grade, 'Primaria')}
-School.offset(School.count).each { |s |s.update_attribute(:grade, 'Secundaria')}
+School.limit(School.count/2).each { |s| s.update_attribute(:grade, 'Primaria')}
+School.offset(School.count/2).each { |s |s.update_attribute(:grade, 'Secundaria')}
 
 
