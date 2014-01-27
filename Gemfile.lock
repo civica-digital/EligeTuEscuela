@@ -71,6 +71,9 @@ GEM
       railties (>= 3.0.0)
     ffaker (1.18.0)
     ffi (1.9.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     geocoder (1.1.8)
     hike (1.2.3)
     i18n (0.6.9)
@@ -190,6 +193,7 @@ DEPENDENCIES
   debugger
   factory_girl_rails
   ffaker
+  figaro
   geocoder
   jquery-rails
   launchy

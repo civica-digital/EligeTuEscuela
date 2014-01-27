@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'geocoder'
 gem 'rest_client'
+gem 'figaro'
 
 group :production do
   gem 'unicorn'

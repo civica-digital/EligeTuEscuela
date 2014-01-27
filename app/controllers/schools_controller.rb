@@ -4,6 +4,7 @@ class SchoolsController < ApplicationController
 
   def search
     address = format_full_address_from_search
+    @home= Geocoder.coordinates(address);
     @schools = SchoolSearcher.new(address, grade: params[:nivel]).schools_by_distance
   end
 
