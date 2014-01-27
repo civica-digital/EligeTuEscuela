@@ -7,7 +7,7 @@ class SchoolSearcher
   end
 
   def schools_by_distance()
-    schools = School.near(@full_address, RADIUS)
+    schools = School.near(@full_address, RADIUS, order: 'distance, availability DESC')
     schools.where(grade: @options[:grade]) unless @options[:grade].blank?
   end
 
