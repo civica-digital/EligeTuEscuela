@@ -11,6 +11,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'geocoder'
+gem 'rest_client'
 
 group :production do
   gem 'unicorn'
