@@ -8,12 +8,12 @@
   <h2>Paso 1: Descubre tus escuelas</h2>
   <p>El primer paso es encontrar tus escuelas cercanas con cupo disponible en las cuales tu hijo es elegible</p>
   <!-- Search form -->
-  <%= form_tag '#', method: :get do %>
+  <%= form_tag search_path, method: :get, id: 'new_search_schools' do %>
     <%= text_field_tag :domicilio, nil, placeholder: t('forms.search.address_placeholder') %>
     <%= text_field_tag :colonia, nil, placeholder: t('forms.search.suburb_placeholder') %>
     <%= text_field_tag :codigo_postal, nil, placeholder: t('forms.search.zip_code_placeholder') %>
-    <%= select_tag :ciudad, options_for_select(['Culiacán'], 'Culiacán'), disabled: true %>
-    <%= select_tag :nivel_educativo, options_for_select([]), prompt: t('forms.search.grade') %>
+    <%= select_tag :ciudad, options_for_select(School::CITIES, School::CITIES.first) %>
+    <%= select_tag :nivel, options_for_select(School::GRADES), prompt: t('forms.search.grade') %>
     <%= submit_tag t('helpers.search') %>
   <% end %>
   <!-- /End search form -->

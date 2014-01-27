@@ -1,0 +1,17 @@
+<table>
+  <thead>
+    <th>ID</th>
+    <th>Nombre</th>
+    <th>Distancia</th>
+    <th>Cupo Disponible</th>
+    <th>Posición municipal</th>
+  </thead>
+  <% @schools.each do | school | %>
+    <tr>
+      <td><%= school.id %> </td>
+      <td><%= school.name %> </td>
+      <td><%= school.distance %> km </td>
+      <td><%= school.city_rank %></td>
+    </tr>
+  <% end%>
+</table>
