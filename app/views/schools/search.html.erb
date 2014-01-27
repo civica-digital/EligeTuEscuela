@@ -19,7 +19,7 @@
   <% @schools.each do | school | %>
     <tr>
       <td><%= school.id %> </td>
-      <td><%= school.name %> </td>
+      <td><%= link_to school.name, school_path(school) %> </td>
       <td><%= school.distance.round(2) %> km </td>
       <td><%= school.availability %> </td>
       <td><%= school.city_rank %></td>
