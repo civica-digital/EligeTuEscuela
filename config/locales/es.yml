@@ -5,5 +5,12 @@ es:
       suburb_placeholder: 'Colonia'
       zip_code_placeholder: 'C.P.'
       grade: 'Nivel educativo'
+    filters:
+      morning: 'Matutino'
+      evening: 'Vespertino'
+      night: 'Nocturno'
+      mixed: 'Mixto'
   helpers:
     search: 'Buscar'
+    filter: 'Filtrar'
+    filtering: 'Filtrando'

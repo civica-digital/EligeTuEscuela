@@ -1,0 +1,13 @@
+<% if @schools.length: %>
+  <% for school, index in @schools: %>
+    <tr>
+      <td><%= index + 1 %> </td>
+      <td><a href="<%= "/schools/#{school.id}" %>"><%= school.name %></a></td>
+      <td><%= school.distance.toFixed(2) %> km</td>
+      <td><%= school.availability %> </td>
+      <td><%= school.grade %></td>
+    </tr>
+  <% end%>
+<% else: %>
+  No hay resultados
+<% end %>

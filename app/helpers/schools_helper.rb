@@ -1,6 +1,6 @@
 module SchoolsHelper
   def marker_info_for_schools(schools)
-    schools.to_json(only: [:latitude, :longitude, :name], :methods => [:to_address])
+    schools.to_json(only: [:latitude, :longitude, :name], :methods => [:full_address])
   end
   
   def marker_info_for_coordinates(coordinates, name="")

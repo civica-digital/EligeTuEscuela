@@ -11,7 +11,30 @@
   <%= submit_tag t('helpers.search') %>
 <% end %>
 <!-- /End search form -->
-<table>
+<div>
+  <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', remote: true do %>
+    <div>
+      <%= label_tag :shift do %>
+        <%= check_box_tag 'shift[]', t('forms.filters.morning') %>
+        <%= t('forms.filters.morning') %>
+      <% end%>
+      <%= label_tag :shift do %>
+        <%= check_box_tag 'shift[]', t('forms.filters.evening') %>
+        <%= t('forms.filters.evening') %>
+      <% end%>
+      <%= label_tag :shift do %>
+        <%= check_box_tag 'shift[]', t('forms.filters.night') %>
+        <%= t('forms.filters.night') %>
+      <% end%>
+      <%= label_tag :shift do %>
+        <%= check_box_tag 'shift[]', t('forms.filters.mixed') %>
+        <%= t('forms.filters.mixed') %>
+      <% end%>
+    </div>
+    <%= submit_tag t('helpers.filter'), data: {disable_with: t('helpers.filtering')} %>
+  <% end %>
+</div>
+<table id='school-results'>
   <thead>
     <th>ID</th>
     <th>Nombre</th>
