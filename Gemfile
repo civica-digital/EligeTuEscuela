@@ -13,6 +13,7 @@ gem 'turbolinks'
 gem 'geocoder'
 gem 'rest_client'
 gem 'figaro'
+gem 'eco'
 
 group :production do
   gem 'unicorn'
@@ -29,7 +30,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', "~> 2.39.0"
 end
 
 group :development, :test do

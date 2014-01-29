@@ -1,10 +1,10 @@
 class School < ActiveRecord::Base
   GRADES = %i(Primaria Secundaria)
-  CITIES = %i(Cualiacán)
+  CITIES = %i(Culiacán)
   reverse_geocoded_by :latitude, :longitude
 
 
-  def to_address
+  def full_address
     "#{address} #{suburb}, Culiacán, Sinaloa. #{zip_code}"
   end
 end

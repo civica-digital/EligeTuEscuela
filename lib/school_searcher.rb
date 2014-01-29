@@ -6,10 +6,21 @@ class SchoolSearcher
     @options = options
   end
 
-  def schools_by_distance()
-    schools = School.near(@full_address, RADIUS, order: 'distance, availability DESC')
-    schools.where(grade: @options[:grade]) unless @options[:grade].blank?
-    schools.limit(100)
+  def schools_by_distance
+    @schools = School.near(@full_address, RADIUS)
+    @schools = with_grade unless @options[:grade].blank?
+    @schools = with_shift unless @options[:shift].blank?
+    @schools.limit(100).order('distance, availability DESC')
+  end
+
+  private
+
+  def with_grade
+    @schools.where(grade: @options[:grade])
+  end
+
+  def with_shift
+    @schools.where(shift: @options[:shift])
   end
 
 end

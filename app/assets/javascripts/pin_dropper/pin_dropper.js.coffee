@@ -8,7 +8,8 @@ class window.PinDropper
 
   updateMarkers: (markers) ->
     @clearMap()
-    @school_markers = @_build_markers_on_bulk(markers)
+    @school_markers = @_build_markers_for_schools(markers)
+    @cluster = new MarkerClusterer(@map, @school_markers)
 
   clearMap: ->
     for marker in @school_markers

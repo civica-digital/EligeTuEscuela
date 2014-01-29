@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require markerclusterer.min
 //= require_tree .
+//
+window.EligeTuEscuela = {} // Global namespace
