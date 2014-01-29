@@ -2,32 +2,27 @@
 
 </div>
 <!-- Search form -->
-<%= form_tag search_path, method: :get, id: 'new_search_schools' do %>
-  <%= text_field_tag :domicilio, nil, placeholder: t('forms.search.address_placeholder') %>
-  <%= text_field_tag :colonia, nil, placeholder: t('forms.search.suburb_placeholder') %>
-  <%= text_field_tag :codigo_postal, nil, placeholder: t('forms.search.zip_code_placeholder') %>
-  <%= select_tag :ciudad, options_for_select(School::CITIES, School::CITIES.first) %>
-  <%= select_tag :nivel, options_for_select(School::GRADES), prompt: t('forms.search.grade') %>
-  <%= submit_tag t('helpers.search') %>
+<%= form_for @school_searcher, url: search_path, html: { method: :get } do |f| %>
+  <%= render partial: 'schools/form_search', locals: { f: f } %>
 <% end %>
 <!-- /End search form -->
 <div>
   <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', remote: true do %>
     <div>
       <%= label_tag :shift do %>
-        <%= check_box_tag 'shift[]', t('forms.filters.morning') %>
+        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.morning') %>
         <%= t('forms.filters.morning') %>
       <% end%>
       <%= label_tag :shift do %>
-        <%= check_box_tag 'shift[]', t('forms.filters.evening') %>
+        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.evening') %>
         <%= t('forms.filters.evening') %>
       <% end%>
       <%= label_tag :shift do %>
-        <%= check_box_tag 'shift[]', t('forms.filters.night') %>
+        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.night') %>
         <%= t('forms.filters.night') %>
       <% end%>
       <%= label_tag :shift do %>
-        <%= check_box_tag 'shift[]', t('forms.filters.mixed') %>
+        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.mixed') %>
         <%= t('forms.filters.mixed') %>
       <% end%>
     </div>

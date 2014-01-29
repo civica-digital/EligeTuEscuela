@@ -1,0 +1,11 @@
+<%= f.text_field :street_and_number, placeholder: t('forms.search.address_placeholder') %>
+<%= errors_on_resource_for_field(@school_searcher, :street_and_number) %>
+<%= f.text_field :suburb, placeholder: t('forms.search.suburb_placeholder') %>
+<%= errors_on_resource_for_field(@school_searcher, :suburb) %>
+<%= f.text_field :zip_code, placeholder: t('forms.search.zip_code_placeholder') %>
+<%= errors_on_resource_for_field(@school_searcher, :zip_code) %>
+<%= f.select :city, options_for_select(SchoolSearcher::CITIES, SchoolSearcher::CITIES.first) %>
+<%= errors_on_resource_for_field(@school_searcher, :city) %>
+<%= f.select :grade, options_for_select(SchoolSearcher::GRADES), prompt: t('forms.search.grade') %>
+<%= errors_on_resource_for_field(@school_searcher, :grade) %>
+<%= f.submit t('helpers.search') %>

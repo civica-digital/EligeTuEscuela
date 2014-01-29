@@ -3,27 +3,37 @@ class SchoolsController < ApplicationController
   before_filter :get_school, only: [:show]
 
   def search
-    session[:address] = format_full_address_from_search
-    session[:grade] = params[:nivel]
-    @home = Geocoder.coordinates(session[:address])
-    @schools = SchoolSearcher.new(session[:address], grade: session[:grade]).schools_by_distance
+    @school_searcher = SchoolSearcher.new(params[:school_searcher])
+    if @school_searcher.valid?
+      persist_search_info_in_session
+      @home = Geocoder.coordinates(@school_searcher.full_address)
+      @schools = @school_searcher.schools_by_distance
+    else
+      render 'pages/home'
+    end
   end
 
   def show
   end
 
   def filter
-    options = params.merge({grade: session[:grade]})
-    @schools = SchoolSearcher.new(session[:address], options).schools_by_distance
-    respond_to do |format|
-        format.json { render :json => @schools.to_json(methods: [:full_address]) }
+    @school_searcher = SchoolSearcher.new(extract_search_info_from_session)
+    if @school_searcher.valid?
+      @schools = @school_searcher.schools_by_distance(params[:school_filters])
+      render json: @schools.to_json(methods: [:full_address])
+    else
+      render json: t('errors.messages.invalid_filter_search'), status: :unprocessable_entity
     end
   end
 
   private
 
-  def format_full_address_from_search
-    "#{params[:domicilio]} #{params[:colonia]}, #{params[:ciudad]}, Sinaloa, #{params[:codigo_postal]}"
+  def persist_search_info_in_session
+    session[:school_search] = @school_searcher.serialize_for_session
+  end
+
+  def extract_search_info_from_session
+    JSON.parse(session[:school_search])
   end
 
   def get_school

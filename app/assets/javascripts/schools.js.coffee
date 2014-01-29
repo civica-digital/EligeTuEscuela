@@ -29,7 +29,7 @@ ready = ->
     true
 
   ).on 'ajax:error', (e, xhr, status, error) ->
-    alert('Lo sentimos hubo un error, vuelve a intentar tu búsqueda.')
+    alert(xhr.responseText)
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
