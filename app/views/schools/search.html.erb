@@ -7,7 +7,7 @@
 <% end %>
 <!-- /End search form -->
 <div>
-  <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', remote: true do %>
+  <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', class: 'js-filter-form', remote: true do %>
     <div>
       <%= label_tag :shift do %>
         <%= check_box_tag 'school_filters[shift][]', t('forms.filters.morning') %>
