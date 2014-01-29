@@ -9,4 +9,8 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-EligeTuEscuela::Application.config.secret_key_base = 'bdd56234e44eb1cec0df23bf4a67f646002f9912dcccafb6ec1c41903fb5f3f5c06844ca05f2de46cea71376418d6c52fd3c5ba70ffdbf4185812e972724f3df'
+EligeTuEscuela::Application.config.secret_key_base = if Rails.env.development? or Rails.env.test?
+  '73ef4e2352221a764591d4d843100c34cb9ea32b971f97c1db48fc5ce67741d1b08908f57c84a6f9cb8ba9f3f7e72c763b18c6ce008a0f7f4d1cb99bf95a028b'
+else
+  ENV['SECRET_TOKEN']
+end

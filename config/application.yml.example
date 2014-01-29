@@ -1,2 +1,7 @@
+test:
+  GOOGLE_KEY: ''
 development:
   GOOGLE_KEY: ''
+production:
+  GOOGLE_KEY: ''
+  SECRET_TOKEN: ''
