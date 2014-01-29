@@ -8,7 +8,7 @@
   <h2>Paso 1: Descubre tus escuelas</h2>
   <p>El primer paso es encontrar tus escuelas cercanas con cupo disponible en las cuales tu hijo es elegible</p>
   <!-- Search form -->
-  <%= form_for @school_searcher, url: search_path, html: { method: :get } do |f| %>
+  <%= form_for @school_searcher, url: search_path, html: { class: "js-search-form-home", method: :get } do |f| %>
     <%= render partial: 'schools/form_search', locals: { f: f } %>
   <% end %>
   <!-- /End search form -->
