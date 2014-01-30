@@ -21,6 +21,7 @@ es:
       record_invalid: ! 'La validación falló: %{errors}'
       taken: ya ha sido tomado
       invalid_filter_search: Lo sentimos la búsqueda con filtros no se pudo completar. Por favor intenta con una nueva búsqueda.
+      missing_filters: Por favor selecciona por lo menos un filtro.
       too_long:
         one: es demasiado largo (máximo 1 caracter)
         other: es demasiado largo (máximo %{count} caracteres)
