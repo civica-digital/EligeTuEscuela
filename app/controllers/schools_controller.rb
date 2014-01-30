@@ -6,7 +6,7 @@ class SchoolsController < ApplicationController
     @school_searcher = SchoolSearcher.new(params[:school_searcher])
     if @school_searcher.valid?
       persist_search_info_in_session
-      @home = Geocoder.coordinates(@school_searcher.full_address)
+      @home = @school_searcher.origin_coordinates
       @schools = @school_searcher.schools_by_distance
     else
       render 'pages/home'

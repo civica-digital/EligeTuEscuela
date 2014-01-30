@@ -9,8 +9,9 @@ class SchoolSearcher < OpenStruct
   CITIES = %w(Culiacán)
   GRADES = %w(Primaria Secundaria)
 
-  validates :street_and_number, :suburb, :zip_code, :city, :grade, presence: true
-  validates :city, inclusion: { in: CITIES }
+  validates :street_and_number, :suburb, :zip_code, :city, presence: true, unless: :geocoded?
+  validates :grade, presence: true
+  validates :city, inclusion: { in: CITIES }, unless: :geocoded?
   validates :grade, inclusion: { in: GRADES }
 
   def initialize(*args)
@@ -22,7 +23,7 @@ class SchoolSearcher < OpenStruct
   end
 
   def schools_by_distance(options={})
-    @schools = School.near(full_address, RADIUS)
+    @schools = School.near(origin_coordinates, RADIUS)
     @schools = with_grade
     @schools = with_shift(options[:shift]) unless options[:shift].blank?
     @schools.limit(100).order('distance, availability DESC')
@@ -33,9 +34,24 @@ class SchoolSearcher < OpenStruct
   end
 
   def serialize_for_session
-    self.as_json['table'].to_json
+    {
+      grade: grade,
+      latitude: origin_coordinates.first,
+      longitude: origin_coordinates.last
+    }.to_json
   end
 
+  def origin_coordinates
+    if self.geocoded?
+      @origin_coordinates ||= [self.latitude, self.longitude]
+    else
+      @origin_coordinates ||= Geocoder.coordinates(self.full_address)
+    end
+  end
+
+  def geocoded?
+    !(self.latitude.nil? || self.longitude.nil?)
+  end
 
   private
 
