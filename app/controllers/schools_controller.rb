@@ -18,11 +18,15 @@ class SchoolsController < ApplicationController
 
   def filter
     @school_searcher = SchoolSearcher.new(extract_search_info_from_session)
-    if @school_searcher.valid?
+    if @school_searcher.valid? && params[:school_filters].present?
       @schools = @school_searcher.schools_by_distance(params[:school_filters])
       render json: @schools.to_json(methods: [:full_address])
     else
-      render json: t('errors.messages.invalid_filter_search'), status: :unprocessable_entity
+      if @school_searcher.valid?
+        render json: t('errors.messages.missing_filters'), status: :unprocessable_entity
+      else
+        render json: t('errors.messages.invalid_filter_search'), status: :unprocessable_entity
+      end
     end
   end
 
