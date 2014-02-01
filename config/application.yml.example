@@ -5,3 +5,5 @@ development:
 production:
   GOOGLE_KEY: ''
   SECRET_TOKEN: ''
+  REDIS_URL: ''
+  REDIS_KEY: ''
