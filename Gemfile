@@ -14,6 +14,7 @@ gem 'geocoder'
 gem 'rest_client'
 gem 'figaro'
 gem 'eco'
+gem "redis", "~> 3.0.7"
 
 group :production do
   gem 'unicorn'
