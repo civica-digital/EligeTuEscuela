@@ -1,0 +1,169 @@
+//////////////
+// FORMS
+//////////////
+.field_with_errors {
+  @extend .has-error;
+  @extend .control-group;
+  @extend .error;
+}
+
+.errors-form {
+  background: $label-danger-bg;
+  color: $label-color;
+  font-size: $font-size-small;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: $border-radius-base;
+}
+
+
+//////////////
+// NAVIGATION
+//////////////
+.nav {
+  padding: 20px;
+  margin-bottom: 10px;
+
+  .social {
+    display: inline-block;
+    background: url(asset-path('social.png')) $dark_purple no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    text-indent: -9999px;
+
+    &.fb {
+      background-position: 10px center;
+    }
+
+    &.tt {
+      background-position: -60px center;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  .logo {
+    display: inline-block;
+  }
+}
+
+/////////////////////
+// WELCOME BOX HOME
+/////////////////////
+.welcome-box {
+  background-color: #e1e2e9;
+  padding: 20px;
+  color: $dark_purple;
+
+  .welcome-title {
+    margin-top: 0px;
+    font-family: 'PT Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    display: inline-block;
+  }
+
+  .welcome-arrow {
+    background: url(asset-path('arrow-orange.png')) no-repeat right 5px;
+    padding-right: 30px;
+  }
+
+}
+
+/////////////////////
+// HOME STEPS
+/////////////////////
+.step {
+  color: #ffffff;
+  margin-bottom: 40px;
+
+  .step-instructions {
+    padding: 30px 0px 30px 20px;
+  }
+
+  .step-header {
+    text-transform: uppercase;
+
+    .step-line {
+      background: $dark_purple;
+      padding-left: 15px;
+      padding-right: 20px;
+      display: inline-block;
+      padding-top: 10px;
+
+      &:last-child {
+        padding-bottom: 10px;
+      }
+    }
+
+    border-left: $orange 5px solid;
+  }
+
+  .step-definition {
+    background: $dark_purple;
+    padding: 15px 0px;
+
+    .step-definition-title {
+      text-transform: uppercase;
+      color: $white;
+      border-bottom: #622B61 2px solid;
+      background: url(asset-path('note-icon.png')) no-repeat 30px 0px;
+      padding: 0px 0px 15px 53px;
+      margin-bottom: 15px;
+    }
+
+    .step-definition-list {
+      margin: 0px;
+      list-style: none;
+      padding: 0px;
+
+      li {
+        background: $light_purple;
+        margin-bottom: 20px;
+        padding-right: 10px;
+
+        .list-indicator {
+          background: $orange;
+          padding: 15px;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+    }
+
+    .step-definition-content {
+      padding: 0px 30px;
+    }
+  }
+
+}
+
+.step-four {
+  margin-top: 30px;
+
+  img {
+    float: left;
+    margin-top: 5px;
+  }
+
+  .step-four-text {
+    margin-left: 45px;
+
+    p {
+      color: $light_gray;
+    }
+
+    p:first-child {
+      font-size: 25px;
+      color: $white;
+    }
+  }
+}
+

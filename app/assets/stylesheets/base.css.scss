@@ -1,0 +1,33 @@
+html, body {
+  background: #61425f;
+  height: 100%;
+}
+
+footer {
+  color: $dark_blue;
+  background: #ffffff url(asset-path('pattern-footer.png')) repeat-x bottom;
+  height: 120px;
+
+  .content {
+    float: left;
+    padding: 35px 0px;
+  }
+
+  .logo {
+    float: right;
+    padding: 20px 0px;
+  }
+}
+
+p {
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.bold-condensed {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+}

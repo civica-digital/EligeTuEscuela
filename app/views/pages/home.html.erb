@@ -1,42 +1,86 @@
-<h1>Bienvenido a las preinscripciones en escuelas de Sinaloa</h1>
+<div class='welcome-box'>
+  <h1 class='welcome-title'>
+    <span class='bold-condensed'>¡BIENVENIDO!</span> <br/ >
+    a las preinscripciones en escuelas de <span class='welcome-arrow'>Sinaloa</span></h1>
+  <p>Elige Tu Escuela es una nueva aplicación para el Estado de Sinaloa que permite a padres de familia consultar</p>
+</div>
 
-<p>Elige Tu Escuela es una nueva aplicación para el Estado de Sinaloa que permite a padres de familia consultar</p>
-
-<hr/>
-
-<div>
-  <h2>Paso 1: Descubre tus escuelas</h2>
-  <p>El primer paso es encontrar tus escuelas cercanas con cupo disponible en las cuales tu hijo es elegible</p>
+<div class='step'>
+  <h2 class='step-header'>
+    <span class='step-line'> Paso 1: </span><br/>
+    <span class='step-line'> Descubre tus escuelas</span>
+  </h2>
+  <p class='step-instructions'>El primer paso es encontrar tus escuelas cercanas con cupo disponible en las cuales tu hijo es elegible</p>
   <!-- Search form -->
-  <%= form_for @school_searcher, url: search_path, html: { class: "js-search-form-home", method: :get } do |f| %>
-    <%= render partial: 'schools/form_search', locals: { f: f } %>
-  <% end %>
-  <!-- /End search form -->
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='step-definition'>
+        <p class='step-definition-title'>Completa el siguiente formulario</p>
+        <div class='row'>
+          <%= form_for @school_searcher, url: search_path, html: { class: "js-search-form-home search-form col-md-12", method: :get } do |f| %>
+            <%= render partial: 'schools/form_search', locals: { f: f } %>
+          <% end %>
+        </div>
+        <!-- /End search form -->
+      </div>
+    </div>
+  </div>
 </div>
 
-<div>
-  <h2>Paso 2: Preinscripción</h2>
-  <p>Las preinscripciones inician el 4 de febrero.</p>
-  <p>El proceso es en 3 fases</p>
-  <ul>
-    <li>Fase 1 - Estudiantes con hermanos en la escuela</li>
-    <li>Fase 2 - Cercanía a la escuela elegible</li>
-    <li>Fase 3 - Libre</li>
-  </ul>
+<div class='step'>
+  <h2 class='step-header'>
+    <span class='step-line'>Paso 2:</span><br/>
+    <span class='step-line'>Preinscripción</span>
+  </h2>
+  <p class='step-instructions'>Las preinscripciones inician el 4 de febrero.</p>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='step-definition'>
+        <p class='step-definition-title'>El proceso es en 3 fases:</p>
+        <div class='step-definition-content'>
+          <ul class='step-definition-list'>
+            <li><span class='list-indicator'>Fase 1</span> Estudiantes con hermanos en la escuela</li>
+            <li><span class='list-indicator'>Fase 2</span> Cercanía a la escuela elegible</li>
+            <li><span class='list-indicator'>Fase 3</span> Libre</li>
+          </ul>
+        </div>
+      </div> <!-- End step definition -->
+    </div>
+  </div>
 </div>
 
-<div>
-  <h2>Paso 2: Preinscripción</h2>
-  <p>Ten listos todos los papeles necesarios para inscribir oficialemente a tu hijo:</p>
-  <ul>
-    <li>Acta de nacimiento</li>
-    <li>Comprobante de domicilio</li>
-    <li>6 Fotografías a color tamano infantil</li>
-  </ul>
+<div class='step'>
+  <h2 class='step-header'>
+    <span class='step-line'>Paso 3:</span><br/>
+    <span class='step-line'>Inscripción</span>
+  </h2>
+  <p class='step-instructions'>Ten listos todos los papeles necesarios para inscribir oficialemente a tu hijo:</p>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='step-definition'>
+        <p class='step-definition-title'>Entrega de documentos:</p>
+        <div class='step-definition-content'>
+          <ul class='step-definition-list'>
+            <li><span class='list-indicator'>1</span> Acta de nacimiento</li>
+            <li><span class='list-indicator'>2</span> Comprobante de domicilio</li>
+            <li><span class='list-indicator'>3</span> 6 Fotografías a color tamaño infantil</li>
+          </ul>
+        </div>
+      </div><!-- end step definition -->
+    </div>
+  </div>
 </div>
 
-<div>
-  <h2>Paso 4: ¡A clases!</h2>
-  <p>¡Listo para comenzar las clases!</p>
-  <p>Para cualquier duda, contacta a tu director.</p>
+<div class='step'>
+  <h2 class='step-header'>
+    <span class='step-line'>Paso 4:</span><br/>
+    <span class='step-line'>¡A clases!</span>
+  </h2>
+  <div class='step-four'>
+    <%= image_tag 'pencil-white.png', class: 'img-responsive' %>
+    <div class='step-four-text'>
+      <p class='big'>¡Listo para comenzar las clases!</p>
+      <p>Para cualquier duda, contacta a tu director.</p>
+    </div>
+  </div>
 </div>

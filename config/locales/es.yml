@@ -12,5 +12,6 @@ es:
       mixed: 'Mixto'
   helpers:
     search: 'Buscar'
+    search_school: 'Buscar Escuela'
     filter: 'Filtrar'
     filtering: 'Filtrando'
