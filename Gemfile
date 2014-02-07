@@ -16,6 +16,7 @@ gem 'rest_client'
 gem 'figaro'
 gem 'eco'
 gem "redis", "~> 3.0.7"
+gem 'breadcrumbs_on_rails'
 
 group :production do
   gem 'unicorn'

@@ -1,6 +1,7 @@
 class SchoolsController < ApplicationController
 
   before_filter :get_school, only: [:show]
+  add_breadcrumb I18n.t('breadcrumb.home'), :root_path
 
   def search
     @school_searcher = SchoolSearcher.new(params[:school_searcher])

@@ -13,5 +13,8 @@ es:
   helpers:
     search: 'Buscar'
     search_school: 'Buscar Escuela'
-    filter: 'Filtrar'
+    filter: 'Filtrar Resultados'
     filtering: 'Filtrando'
+
+  breadcrumb:
+    home: 'Inicio'

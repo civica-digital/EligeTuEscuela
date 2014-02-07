@@ -3,8 +3,6 @@
 //////////////
 .field_with_errors {
   @extend .has-error;
-  @extend .control-group;
-  @extend .error;
 }
 
 .errors-form {
@@ -64,6 +62,10 @@
     text-transform: uppercase;
     margin-bottom: 30px;
     display: inline-block;
+
+    &.welcome-title-inline {
+      margin: 0px;
+    }
   }
 
   .welcome-arrow {
@@ -163,6 +165,159 @@
     p:first-child {
       font-size: 25px;
       color: $white;
+    }
+  }
+}
+
+.block-wrapper {
+  background: $dark_purple;
+  padding: 20px 0px;
+
+  .block-divider {
+    border-top: #622B61 2px solid;
+    padding-top: 15px;
+    clear: both;
+  }
+}
+
+
+/////////////////////
+// MAPS ON RESULTS
+/////////////////////
+#map-wrapper {
+  height: 600px;
+
+  .map-container {
+    position: absolute;
+    height: 600px;
+    left: 0px;
+    right: 0px;
+  }
+
+  .gmap {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+  }
+}
+
+/////////////////////
+// TABLE WITH RESULTS
+/////////////////////
+.table-custom {
+  thead {
+    border-top: 10px solid #fff;
+  }
+  thead th {
+    background: $dark_purple;
+    border: 10px solid #fff;
+    color: #e1e2e9;
+    font-weight: normal;
+  }
+
+  td {
+    text-align:center;
+    border: 10px solid #fff;
+  }
+
+  tbody tr {
+    background: #e1e2e9;
+    border: 10px solid #fff;
+  }
+
+  a.school-name {
+    font-weight: bold;
+  }
+}
+
+
+/////////////////////
+// FILTERS
+/////////////////////
+.search-filters {
+  color: #fff;
+
+  .search-filter-sec {
+    background: $dark_purple;
+  }
+
+  .search-filters-title {
+    background: url(asset-path('note-icon.png')) $dark_purple no-repeat 15px center;
+    padding: 15px 15px 15px 40px;
+    margin-bottom: 0px;
+  }
+
+  .search-filter-sec-title {
+    text-transform: uppercase;
+    background: #622B61;
+    padding: 15px;
+  }
+
+  .search-filter-option {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #622B61;
+    font-weight: normal;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    input {
+      margin-right: 10px;
+    }
+  }
+
+  input[type='submit'] {
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .search-filter-submit {
+    background: #61425f;
+  }
+}
+
+.breadcrumbs {
+  background: #5a1f5f;
+  color: #fff;
+  list-style: none;
+  display: inline-block;
+  padding: 0px;
+
+  .beginning {
+    position: relative;
+    background: url(asset-path('pencil-white-sm.png')) $dark_purple no-repeat 20px center;
+    height: 46px;
+    width: 40px;
+    padding: 0px;
+    margin-right: 30px;
+  }
+  .beginning:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .beginning:after {
+    border-left-color: $dark_purple;
+    border-width: 22px;
+    margin-top: -22px;
+  }
+
+
+  li {
+    text-transform: uppercase;
+    padding: 13px 15px;
+    display: inline-block;
+    float: left;
+
+    a {
+      color: #fff;
     }
   }
 }
