@@ -1,4 +1,9 @@
 es:
+  schools:
+    show:
+      compare_schools: 'compara la escuela'
+      preregister: 'preinscribirse'
+      student_occupation: 'Ocupación Estudiantil'
   forms:
     search:
       address_placeholder: 'Nombre de calle y número'

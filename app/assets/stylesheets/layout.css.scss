@@ -3,9 +3,9 @@
   min-height: 100%;
   height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -120px;
+  margin: 0 auto -210px;
   /* Pad bottom by footer height */
-  padding: 0 0 120px;
+  padding: 0 0 210px;
 }
 
 #gmap {
@@ -13,6 +13,41 @@
   height: 600px;
 }
 
+#gmap-school-show {
+  width: 100%;
+  height: 300px;
+}
+
 .l-bl-separation {
   margin-bottom: 30px;
+}
+
+.l-bl-med-separation {
+  margin-bottom: 20px;
+}
+
+.l-sm-r-separation {
+  margin-right: 10px;
+}
+
+.l-gallery-title {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+
+.l-buttons-showcase {
+  position: absolute;
+  bottom: 30px;
+}
+
+@media (min-width: $screen-sm-min) {
+
+  #wrap {
+    /* Negative indent footer by its height */
+    margin: 0 auto -120px;
+    /* Pad bottom by footer height */
+    padding: 0 0 120px;
+  }
+
 }

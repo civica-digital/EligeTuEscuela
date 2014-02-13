@@ -43,8 +43,16 @@
     }
   }
 
-  .logo {
-    display: inline-block;
+  .logo img {
+    width: 150px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .nav {
+    .logo img {
+      width: auto;
+    }
   }
 }
 
@@ -61,7 +69,8 @@
     font-family: 'PT Sans', sans-serif;
     text-transform: uppercase;
     margin-bottom: 30px;
-    display: inline-block;
+    font-size: 30px;
+
 
     &.welcome-title-inline {
       margin: 0px;
@@ -69,8 +78,8 @@
   }
 
   .welcome-arrow {
-    background: url(asset-path('arrow-orange.png')) no-repeat right 5px;
-    padding-right: 30px;
+    background: url(asset-path('arrow-orange.png')) no-repeat right 7px;
+    padding-right: 20px;
   }
 
 }
@@ -115,6 +124,10 @@
       background: url(asset-path('note-icon.png')) no-repeat 30px 0px;
       padding: 0px 0px 15px 53px;
       margin-bottom: 15px;
+
+      &.step-definition-title-user {
+        background-image: url(asset-path('user-icon.png'));
+      }
     }
 
     .step-definition-list {
@@ -134,10 +147,30 @@
           margin-right: 5px;
         }
 
+        &.no-indicator {
+          padding: 15px;
+        }
+
+        &.indicator-right {
+          padding-left: 15px;
+          padding-right: 0px;
+
+          .list-indicator {
+            margin-left: 15px;
+            margin-right: 0px;
+          }
+        }
+
+        &.short {
+          display: inline-block;
+          padding-right: 0px;
+        }
+
         &:last-child {
           margin-bottom: 0px;
         }
       }
+
     }
 
     .step-definition-content {
@@ -321,4 +354,123 @@
     }
   }
 }
+
+// SHOW
+
+.step-title {
+  color: #fff;
+
+  .step-line {
+    font-family: 'PT Sans', sans-serif;
+    background: $dark_purple;
+    padding-left: 15px;
+    padding-right: 20px;
+    display: inline-block;
+    padding-top: 10px;
+    margin: 0px;
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  border-left: $orange 5px solid;
+}
+
+.school-showcase {
+  overflow: hidden;
+
+  .school-showcase-pic {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 316px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .school-showcase-wrapper {
+    position: relative;
+    height: 316px;
+  }
+
+}
+
+
+.school-stat {
+  background: url(asset-path('arrow-white.png')) #852e89 no-repeat 14px 16px;
+
+  .school-stat-name {
+    background: $dark_purple;
+    color: #fff;
+    margin: 0px 0px 0px 40px;
+    padding: 10px;
+    text-align:center;
+  }
+
+  .school-stat-value {
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    background: #fff;
+  }
+}
+
+.white-wrapper {
+  border: 10px solid #fff;
+}
+
+.rank {
+  color: #fff;
+  font-size: 18px;
+  background: url(asset-path('trophy-icon.png')) $orange no-repeat 10px center;
+  padding: 10px 10px 10px 70px;
+  text-align: center;
+
+  .rank-position {
+    font-size: 26px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+.properties {
+
+  ul {
+    padding: 0;
+    background: $dark_purple;
+    list-style: none;
+  }
+
+  li {
+    text-transform: uppercase;
+    color: #fff;
+    border-top: 1px solid #622B61;
+    padding: 15px 15px 15px 50px;
+  }
+
+  .property-header {
+    background: #852e89;
+    padding: 15px;
+  }
+
+  .check {
+    color: $orange;
+    padding: 15px;
+
+    &:before {
+      content: "\2713";
+      color: #fff;
+      background: $orange;
+      padding: 3px 5px;
+      margin-right: 15px;
+    }
+  }
+}
+
+
+
 
