@@ -1,0 +1,55 @@
+html, body {
+  background: #61425f;
+  height: 100%;
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+footer {
+  color: $dark_blue;
+  height: 210px;
+  background: #ffffff url(asset-path('pattern-footer.png')) repeat-x bottom;
+  text-align: center;
+
+  .content {
+    padding: 35px 0px 0px 0px;
+  }
+
+  .logo {
+    padding: 20px 0px 0px 0px;
+  }
+
+}
+
+@media (min-width: $screen-sm-min) {
+
+  footer {
+    height: 120px;
+    text-align: left;
+
+    .content {
+      float: left;
+      padding: 35px 0px;
+    }
+
+    .logo {
+      float: right;
+      padding: 20px 0px;
+    }
+
+  }
+
+}
+
+p {
+  font-family: 'PT Sans Caption', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans', sans-serif;
+}
+
+.bold-condensed {
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700;
+}
+

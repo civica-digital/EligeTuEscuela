@@ -1,1 +1,98 @@
-<h1><%= @school.name %></h1>
+<%= render 'shared/breadcrumb_header' %>
+
+<!-- SHOWCASE -->
+<div class='school-showcase l-bl-separation'>
+  <div class='school-showcase-pic' style="background-image: url('<%= image_path('escuela_default.png') %>')"></div>
+  <div class='school-showcase-wrapper'>
+    <div class='step-title l-gallery-title'>
+      <h1 class='step-line'><%= @school.name %></h1><br/>
+      <p class='step-line'><%= @school.grade.upcase %> | <%= @school.shift.upcase%></p>
+    </div>
+
+    <div class='l-buttons-showcase'>
+      <%= link_to t('.compare_schools').upcase,
+        'http://www.mejoratuescuela.org/compara/',
+        class: 'btn btn-primary l-sm-r-separation btn-lg' %>
+      <%= link_to t('.preregister').upcase,
+        'http://www.preinscripcionessinaloa.gob.mx/',
+        class: 'btn btn-default btn-lg' %>
+    </div>
+  </div>
+
+</div> <!-- END SHOWCASE -->
+
+<!-- SCHOOL DESCRIPTION -->
+<div class='gray-wrapper'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class='step-title l-bl-med-separation'>
+        <h2 class='step-line'><%= t('.student_occupation') %></h2>
+      </div>
+
+      <div class='row l-bl-med-separation'>
+        <div class='col-md-4'>
+          <div class='school-stat'>
+            <p class='school-stat-name'>Cupo Máximo</p>
+            <p class='school-stat-value'>50 Alumnos</p>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class='school-stat'>
+            <p class='school-stat-name'>Cupo Actual</p>
+            <p class='school-stat-value'>30 Alumnos</p>
+          </div>
+        </div>
+        <div class='col-md-4'>
+          <div class='school-stat'>
+            <p class='school-stat-name'>Lugares Disponibles</p>
+            <p class='school-stat-value'>20 Alumnos</p>
+          </div>
+        </div>
+      </div>
+
+      <div class='white-wrapper l-bl-med-separation'>
+        <div id='gmap-school-show' data-lat="<%= @school.latitude %>" data-lng="<%= @school.longitude%>">
+        </div>
+      </div>
+
+      <div class='step'>
+        <div class='step-definition'>
+          <p class='step-definition-title step-definition-title-user'>Información de contacto</p>
+          <div class='step-definition-content'>
+            <ul class='step-definition-list'>
+              <li class='indicator-right short'>Estudiantes con hermanos en la escuela<span class='list-indicator'>Director</span> </li>
+              <li class='clearfix no-indicator'>
+                Teléfono: (81) 1223.31234
+                <span class='pull-right'>Horarios de Atención: 9:00 AM a 6:00 PM</span>
+              </li>
+            </ul>
+          </div>
+        </div> <!-- End step definition -->
+      </div>
+    </div>
+
+
+    <div class='col-md-4'>
+      <div class='rank l-bl-med-separation'>
+        <p class='rank-position'>1 LUGAR / DE 100</p>
+        <p>Posición en ciudad</p>
+      </div>
+
+      <div class='properties'>
+        <ul class='l-bl-med-separation'>
+          <li class='property-header'>SEMÁFORO EDUCATIVO</li>
+          <li class='check'>Excelente</li>
+          <li>Bien</li>
+          <li>De Panzaso</li>
+          <li>Reprobado</li>
+        </ul>
+        <ul class='l-bl-med-separation'>
+          <li class='property-header'>PROGRAMAS</li>
+          <li class='check'>Escuela Segura</li>
+          <li class='check'>Escuela de calidad</li>
+          <li class='check'>Tiempo completo</li>
+        </ul>
+      </div>
+    </div> <!-- END SIDEBAR -->
+  </div>
+</div><!-- -->

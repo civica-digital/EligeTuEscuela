@@ -1,11 +1,30 @@
-<%= f.text_field :street_and_number, placeholder: t('forms.search.address_placeholder') %>
-<%= errors_on_resource_for_field(@school_searcher, :street_and_number) %>
-<%= f.text_field :suburb, placeholder: t('forms.search.suburb_placeholder') %>
-<%= errors_on_resource_for_field(@school_searcher, :suburb) %>
-<%= f.text_field :zip_code, placeholder: t('forms.search.zip_code_placeholder') %>
-<%= errors_on_resource_for_field(@school_searcher, :zip_code) %>
-<%= f.select :city, options_for_select(SchoolSearcher::CITIES, SchoolSearcher::CITIES.first) %>
-<%= errors_on_resource_for_field(@school_searcher, :city) %>
-<%= f.select :grade, options_for_select(SchoolSearcher::GRADES), prompt: t('forms.search.grade') %>
-<%= errors_on_resource_for_field(@school_searcher, :grade) %>
-<%= f.submit t('helpers.search') %>
+<div class='top-fields'>
+  <div class='form-group col-md-6'>
+      <%= f.text_field :street_and_number, placeholder: t('forms.search.address_placeholder'), class: 'form-control', required: true %>
+      <%= errors_on_resource_for_field(@school_searcher, :street_and_number) %>
+  </div>
+  <div class='form-group col-md-6'>
+      <%= f.text_field :suburb, placeholder: t('forms.search.suburb_placeholder'), class: 'form-control', required: true %>
+      <%= errors_on_resource_for_field(@school_searcher, :suburb) %>
+  </div>
+</div>
+<div class='lower-fields'>
+  <div class='form-group col-md-4'>
+    <%= f.text_field :zip_code, placeholder: t('forms.search.zip_code_placeholder'), class: 'form-control', required: true %>
+    <%= errors_on_resource_for_field(@school_searcher, :zip_code) %>
+  </div>
+  <div class='form-group col-md-4'>
+    <%= f.select :city, options_for_select(SchoolSearcher::CITIES, SchoolSearcher::CITIES.first), {}, class: 'form-control' %>
+    <%= errors_on_resource_for_field(@school_searcher, :city) %>
+  </div>
+  <div class='form-group col-md-4'>
+    <%= f.select :grade, options_for_select(SchoolSearcher::GRADES), {prompt: t('forms.search.grade')}, {class: 'form-control'}  %>
+    <%= errors_on_resource_for_field(@school_searcher, :grade) %>
+  </div>
+</div>
+<div class='col-md-12'>
+  <%= f.button(type: 'submit', class: "btn btn-primary") do %>
+    <%= t('helpers.search_school') %>
+    <i class="glyphicon glyphicon-search"></i>
+  <% end %>
+</div>

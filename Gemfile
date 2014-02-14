@@ -8,6 +8,7 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'bootstrap-sass', '~> 3.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'geocoder'
@@ -15,6 +16,7 @@ gem 'rest_client'
 gem 'figaro'
 gem 'eco'
 gem "redis", "~> 3.0.7"
+gem 'breadcrumbs_on_rails'
 
 group :production do
   gem 'unicorn'

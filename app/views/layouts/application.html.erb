@@ -1,16 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>EligeTuEscuela</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_KEY']}&sensor=false" %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Elige Tu Escuela</title>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_KEY']}&sensor=false" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic|PT+Sans+Caption' rel='stylesheet' type='text/css'>
 
-  <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-</body>
+    <div id='wrap'>
+      <nav class='container nav'>
+        <%= link_to root_path, class: 'logo' do %>
+          <%= image_tag 'logo-white.png', alt: 'Elige Tu Escuela' %>
+        <% end%>
+        <div class='pull-right'>
+          <%= link_to nil, 'http://facebook.com', class: 'social fb' %>
+          <%= link_to nil, 'http://twitter.com', class: 'social tt' %>
+        </div>
+      </nav>
+
+      <div class="container">
+        <%= yield %>
+      </div><!-- /.container -->
+    </div>
+
+    <!-- footer -->
+
+    <footer>
+      <div class='container'>
+        <p class='content'>
+          Elige Tu Escuela <br />
+          Copyright &copy; 2014 Elige Tu Escuela.
+        </p>
+        <%= image_tag 'logo-color.png', class: 'logo'%>
+      </div>
+    </footer>
+    <!-- /footer -->
+
+  </body>
 </html>

@@ -21,6 +21,7 @@ class window.PinDropper
       zoom: 8
       center: new google.maps.LatLng(0.0,0.0)
       mapTypeId: google.maps.MapTypeId.ROADMAP
+      scrollwheel: false
     }, raw_options)
 
   _build_marker: (marker, icon) ->

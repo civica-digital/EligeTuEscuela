@@ -1,49 +1,73 @@
-<div id='gmap' data-markers="<%= marker_info_for_schools(@schools) %>" data-home="<%= marker_info_for_coordinates(@home) %>">
+<%= render 'shared/breadcrumb_header' %>
 
-</div>
 <!-- Search form -->
-<%= form_for @school_searcher, url: search_path, html: { class: "js-search-form-results", method: :get } do |f| %>
-  <%= render partial: 'schools/form_search', locals: { f: f } %>
-<% end %>
-<!-- /End search form -->
-<div>
-  <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', class: 'js-filter-form', remote: true do %>
-    <div>
-      <%= label_tag :shift do %>
-        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.morning') %>
-        <%= t('forms.filters.morning') %>
-      <% end%>
-      <%= label_tag :shift do %>
-        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.evening') %>
-        <%= t('forms.filters.evening') %>
-      <% end%>
-      <%= label_tag :shift do %>
-        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.night') %>
-        <%= t('forms.filters.night') %>
-      <% end%>
-      <%= label_tag :shift do %>
-        <%= check_box_tag 'school_filters[shift][]', t('forms.filters.mixed') %>
-        <%= t('forms.filters.mixed') %>
-      <% end%>
-    </div>
-    <%= submit_tag t('helpers.filter'), data: {disable_with: t('helpers.filtering')} %>
-  <% end %>
+<div class='block-wrapper l-bl-separation'>
+  <div class='row'>
+    <%= form_for @school_searcher, url: search_path, html: { class: "js-search-form-results col-md-12", method: :get } do |f| %>
+      <%= render partial: 'schools/form_search_inline', locals: { f: f } %>
+    <% end %>
+  </div>
 </div>
-<table id='school-results'>
-  <thead>
-    <th>ID</th>
-    <th>Nombre</th>
-    <th>Distancia</th>
-    <th>Cupo Disponible</th>
-    <th>Posición municipal</th>
-  </thead>
-  <% @schools.each_with_index do | school, index | %>
-    <tr>
-      <td><%= index+1 %> </td>
-      <td><%= link_to school.name, school_path(school) %> </td>
-      <td><%= school.distance.round(2) %> km </td>
-      <td><%= school.availability %> </td>
-      <td><%= school.city_rank %></td>
-    </tr>
-  <% end%>
-</table>
+<!-- /End search form -->
+
+<!-- MAP -->
+<div id='map-wrapper' class='l-bl-separation'>
+  <div class='map-container'>
+    <div id='gmap' data-markers="<%= marker_info_for_schools(@schools) %>" data-home="<%= marker_info_for_coordinates(@home) %>"></div>
+  </div>
+</div>
+<! -- END MAP -->
+
+<div class='row'>
+  <div class='col-md-3'>
+    <div class='search-filters l-bl-separation'>
+      <p class='search-filters-title'>Filtro de resultados:</p>
+      <%= form_tag filter_schools_path, method: :post, id: 'filter_schools', class: 'js-filter-form', remote: true do %>
+        <div class='search-filter-sec'>
+          <p class='search-filter-sec-title'>Turno</p>
+          <%= label_tag :shift, class: 'search-filter-option' do %>
+            <%= check_box_tag 'school_filters[shift][]', t('forms.filters.morning') %>
+            <%= t('forms.filters.morning') %>
+          <% end%>
+          <%= label_tag :shift, class: 'search-filter-option' do %>
+            <%= check_box_tag 'school_filters[shift][]', t('forms.filters.evening') %>
+            <%= t('forms.filters.evening') %>
+          <% end%>
+          <%= label_tag :shift, class: 'search-filter-option' do %>
+            <%= check_box_tag 'school_filters[shift][]', t('forms.filters.night') %>
+            <%= t('forms.filters.night') %>
+          <% end%>
+          <%= label_tag :shift, class: 'search-filter-option' do %>
+            <%= check_box_tag 'school_filters[shift][]', t('forms.filters.mixed') %>
+            <%= t('forms.filters.mixed') %>
+          <% end%>
+        </div>
+        <div class='search-filter-submit'>
+          <%= submit_tag t('helpers.filter'), class: 'btn btn-primary btn-block', data: {disable_with: t('helpers.filtering')} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class='col-md-9'>
+    <div class='table-responsive'>
+      <table id='school-results' class='table table-custom'>
+        <thead>
+          <th>ID</th>
+          <th>Nombre de la escuela</th>
+          <th>Distancia</th>
+          <th>Cupo Disponible</th>
+          <th>Posición Municipal</th>
+        </thead>
+        <% @schools.each_with_index do | school, index | %>
+          <tr>
+            <td><%= index+1 %> </td>
+            <td><%= link_to school.name, school_path(school), class: 'school-name' %> </td>
+            <td><%= school.distance.round(2) %> km </td>
+            <td><%= school.availability %> </td>
+            <td><%= school.city_rank %></td>
+          </tr>
+        <% end%>
+      </table>
+    </div>
+  </div>
+</div>

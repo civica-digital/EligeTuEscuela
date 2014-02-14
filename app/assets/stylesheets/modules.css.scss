@@ -1,0 +1,476 @@
+//////////////
+// FORMS
+//////////////
+.field_with_errors {
+  @extend .has-error;
+}
+
+.errors-form {
+  background: $label-danger-bg;
+  color: $label-color;
+  font-size: $font-size-small;
+  padding: 5px 10px;
+  margin: 5px 0;
+  border-radius: $border-radius-base;
+}
+
+
+//////////////
+// NAVIGATION
+//////////////
+.nav {
+  padding: 20px;
+  margin-bottom: 10px;
+
+  .social {
+    display: inline-block;
+    background: url(asset-path('social.png')) $dark_purple no-repeat;
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    text-indent: -9999px;
+
+    &.fb {
+      background-position: 10px center;
+    }
+
+    &.tt {
+      background-position: -60px center;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  .logo img {
+    width: 150px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .nav {
+    .logo img {
+      width: auto;
+    }
+  }
+}
+
+/////////////////////
+// WELCOME BOX HOME
+/////////////////////
+.welcome-box {
+  background-color: #e1e2e9;
+  padding: 20px;
+  color: $dark_purple;
+
+  .welcome-title {
+    margin-top: 0px;
+    font-family: 'PT Sans', sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-size: 30px;
+
+
+    &.welcome-title-inline {
+      margin: 0px;
+    }
+  }
+
+  .welcome-arrow {
+    background: url(asset-path('arrow-orange.png')) no-repeat right 7px;
+    padding-right: 20px;
+  }
+
+}
+
+/////////////////////
+// HOME STEPS
+/////////////////////
+.step {
+  color: #ffffff;
+  margin-bottom: 40px;
+
+  .step-instructions {
+    padding: 30px 0px 30px 20px;
+  }
+
+  .step-header {
+    text-transform: uppercase;
+
+    .step-line {
+      background: $dark_purple;
+      padding-left: 15px;
+      padding-right: 20px;
+      display: inline-block;
+      padding-top: 10px;
+
+      &:last-child {
+        padding-bottom: 10px;
+      }
+    }
+
+    border-left: $orange 5px solid;
+  }
+
+  .step-definition {
+    background: $dark_purple;
+    padding: 15px 0px;
+
+    .step-definition-title {
+      text-transform: uppercase;
+      color: $white;
+      border-bottom: #622B61 2px solid;
+      background: url(asset-path('note-icon.png')) no-repeat 30px 0px;
+      padding: 0px 0px 15px 53px;
+      margin-bottom: 15px;
+
+      &.step-definition-title-user {
+        background-image: url(asset-path('user-icon.png'));
+      }
+    }
+
+    .step-definition-list {
+      margin: 0px;
+      list-style: none;
+      padding: 0px;
+
+      li {
+        background: $light_purple;
+        margin-bottom: 20px;
+        padding-right: 10px;
+
+        .list-indicator {
+          background: $orange;
+          padding: 15px;
+          display: inline-block;
+          margin-right: 5px;
+        }
+
+        &.no-indicator {
+          padding: 15px;
+        }
+
+        &.indicator-right {
+          padding-left: 15px;
+          padding-right: 0px;
+
+          .list-indicator {
+            margin-left: 15px;
+            margin-right: 0px;
+          }
+        }
+
+        &.short {
+          display: inline-block;
+          padding-right: 0px;
+        }
+
+        &:last-child {
+          margin-bottom: 0px;
+        }
+      }
+
+    }
+
+    .step-definition-content {
+      padding: 0px 30px;
+    }
+  }
+
+}
+
+.step-four {
+  margin-top: 30px;
+
+  img {
+    float: left;
+    margin-top: 5px;
+  }
+
+  .step-four-text {
+    margin-left: 45px;
+
+    p {
+      color: $light_gray;
+    }
+
+    p:first-child {
+      font-size: 25px;
+      color: $white;
+    }
+  }
+}
+
+.block-wrapper {
+  background: $dark_purple;
+  padding: 20px 0px;
+
+  .block-divider {
+    border-top: #622B61 2px solid;
+    padding-top: 15px;
+    clear: both;
+  }
+}
+
+
+/////////////////////
+// MAPS ON RESULTS
+/////////////////////
+#map-wrapper {
+  height: 600px;
+
+  .map-container {
+    position: absolute;
+    height: 600px;
+    left: 0px;
+    right: 0px;
+  }
+
+  .gmap {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+  }
+}
+
+/////////////////////
+// TABLE WITH RESULTS
+/////////////////////
+.table-custom {
+  thead {
+    border-top: 10px solid #fff;
+  }
+  thead th {
+    background: $dark_purple;
+    border: 10px solid #fff;
+    color: #e1e2e9;
+    font-weight: normal;
+  }
+
+  td {
+    text-align:center;
+    border: 10px solid #fff;
+  }
+
+  tbody tr {
+    background: #e1e2e9;
+    border: 10px solid #fff;
+  }
+
+  a.school-name {
+    font-weight: bold;
+  }
+}
+
+
+/////////////////////
+// FILTERS
+/////////////////////
+.search-filters {
+  color: #fff;
+
+  .search-filter-sec {
+    background: $dark_purple;
+  }
+
+  .search-filters-title {
+    background: url(asset-path('note-icon.png')) $dark_purple no-repeat 15px center;
+    padding: 15px 15px 15px 40px;
+    margin-bottom: 0px;
+  }
+
+  .search-filter-sec-title {
+    text-transform: uppercase;
+    background: #622B61;
+    padding: 15px;
+  }
+
+  .search-filter-option {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #622B61;
+    font-weight: normal;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    input {
+      margin-right: 10px;
+    }
+  }
+
+  input[type='submit'] {
+    text-transform: uppercase;
+    margin-top: 10px;
+  }
+  .search-filter-submit {
+    background: #61425f;
+  }
+}
+
+.breadcrumbs {
+  background: #5a1f5f;
+  color: #fff;
+  list-style: none;
+  display: inline-block;
+  padding: 0px;
+
+  .beginning {
+    position: relative;
+    background: url(asset-path('pencil-white-sm.png')) $dark_purple no-repeat 20px center;
+    height: 46px;
+    width: 40px;
+    padding: 0px;
+    margin-right: 30px;
+  }
+  .beginning:after {
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  .beginning:after {
+    border-left-color: $dark_purple;
+    border-width: 22px;
+    margin-top: -22px;
+  }
+
+
+  li {
+    text-transform: uppercase;
+    padding: 13px 15px;
+    display: inline-block;
+    float: left;
+
+    a {
+      color: #fff;
+    }
+  }
+}
+
+// SHOW
+
+.step-title {
+  color: #fff;
+
+  .step-line {
+    font-family: 'PT Sans', sans-serif;
+    background: $dark_purple;
+    padding-left: 15px;
+    padding-right: 20px;
+    display: inline-block;
+    padding-top: 10px;
+    margin: 0px;
+
+    &:last-child {
+      padding-bottom: 10px;
+    }
+  }
+
+  border-left: $orange 5px solid;
+}
+
+.school-showcase {
+  overflow: hidden;
+
+  .school-showcase-pic {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    height: 316px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .school-showcase-wrapper {
+    position: relative;
+    height: 316px;
+  }
+
+}
+
+
+.school-stat {
+  background: url(asset-path('arrow-white.png')) #852e89 no-repeat 14px 16px;
+
+  .school-stat-name {
+    background: $dark_purple;
+    color: #fff;
+    margin: 0px 0px 0px 40px;
+    padding: 10px;
+    text-align:center;
+  }
+
+  .school-stat-value {
+    text-align: center;
+    margin: 0px;
+    padding: 10px;
+    background: #fff;
+  }
+}
+
+.white-wrapper {
+  border: 10px solid #fff;
+}
+
+.rank {
+  color: #fff;
+  font-size: 18px;
+  background: url(asset-path('trophy-icon.png')) $orange no-repeat 10px center;
+  padding: 10px 10px 10px 70px;
+  text-align: center;
+
+  .rank-position {
+    font-size: 26px;
+  }
+
+  p {
+    margin: 0px;
+  }
+}
+
+.properties {
+
+  ul {
+    padding: 0;
+    background: $dark_purple;
+    list-style: none;
+  }
+
+  li {
+    text-transform: uppercase;
+    color: #fff;
+    border-top: 1px solid #622B61;
+    padding: 15px 15px 15px 50px;
+  }
+
+  .property-header {
+    background: #852e89;
+    padding: 15px;
+  }
+
+  .check {
+    color: $orange;
+    padding: 15px;
+
+    &:before {
+      content: "\2713";
+      color: #fff;
+      background: $orange;
+      padding: 3px 5px;
+      margin-right: 15px;
+    }
+  }
+}
+
+
+
+
