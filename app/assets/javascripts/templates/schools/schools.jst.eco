@@ -2,10 +2,10 @@
   <% for school, index in @schools: %>
     <tr>
       <td><%= index + 1 %> </td>
-      <td><a href="<%= "/schools/#{school.id}" %>"><%= school.name %></a></td>
+      <td><a href="<%= "/schools/#{school.id}" %>" class='school-name'><%= school.name %></a></td>
       <td><%= school.distance.toFixed(2) %> km</td>
-      <td><%= school.availability %> </td>
-      <td><%= school.city_rank %></td>
+      <td><%= school.availability || 'No disponible' %> </td>
+      <td><%= school.city_rank || 'No disponible' %></td>
     </tr>
   <% end%>
 <% else: %>

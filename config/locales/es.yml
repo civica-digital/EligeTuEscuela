@@ -20,6 +20,7 @@ es:
     search_school: 'Buscar Escuela'
     filter: 'Filtrar Resultados'
     filtering: 'Filtrando'
+    not_available: 'No disponible'
 
   breadcrumb:
     home: 'Inicio'

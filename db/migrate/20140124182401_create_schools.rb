@@ -1,6 +1,7 @@
 class CreateSchools < ActiveRecord::Migration
   def change
     create_table :schools do |t|
+      t.integer :imco_id
       t.string :cct
       t.string :name
       t.string :address
@@ -22,13 +23,17 @@ class CreateSchools < ActiveRecord::Migration
       t.string :shift
       t.string :state_rank
       t.string :city_rank
-      t.string :enlace_results
-      t.string :total_students
-      t.string :total_evaluated_students
+      t.text :enlace_results
+      t.integer :total_students, default: 0
+      t.integer :total_evaluated_students, default: 0
       t.string :educational_semaphore
-      t.string :total_teachers
+      t.integer :total_teachers, default: 0
       t.string :grade_by_parents
-      t.string :budget
+      t.float :budget, default: 0
+      t.integer :availability, default: 0
+      t.integer :max_availability, default: 0
+      t.string :level
+      t.text :contact_info
 
       t.timestamps
     end

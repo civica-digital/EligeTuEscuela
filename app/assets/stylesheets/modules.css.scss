@@ -419,6 +419,7 @@
 
 .white-wrapper {
   border: 10px solid #fff;
+  background: white;
 }
 
 .rank {
@@ -427,6 +428,7 @@
   background: url(asset-path('trophy-icon.png')) $orange no-repeat 10px center;
   padding: 10px 10px 10px 70px;
   text-align: center;
+  min-height: 70px;
 
   .rank-position {
     font-size: 26px;

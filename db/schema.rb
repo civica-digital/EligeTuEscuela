@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140127181631) do
+ActiveRecord::Schema.define(version: 20140124182401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "schools", force: true do |t|
+    t.integer  "imco_id"
     t.string   "cct"
     t.string   "name"
     t.string   "address"
@@ -38,16 +39,19 @@ ActiveRecord::Schema.define(version: 20140127181631) do
     t.string   "shift"
     t.string   "state_rank"
     t.string   "city_rank"
-    t.string   "enlace_results"
-    t.string   "total_students"
-    t.string   "total_evaluated_students"
+    t.text     "enlace_results"
+    t.integer  "total_students",           default: 0
+    t.integer  "total_evaluated_students", default: 0
     t.string   "educational_semaphore"
-    t.string   "total_teachers"
+    t.integer  "total_teachers",           default: 0
     t.string   "grade_by_parents"
-    t.string   "budget"
+    t.float    "budget",                   default: 0.0
+    t.integer  "availability",             default: 0
+    t.integer  "max_availability",         default: 0
+    t.string   "level"
+    t.text     "contact_info"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "availability"
   end
 
 end
