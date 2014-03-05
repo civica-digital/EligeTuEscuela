@@ -1,48 +1,45 @@
 # Cleanup
 School.destroy_all
 
-GRADES = %i{Primaria Secundaria}
-SHIFTS = %i{Matutino Vespertino Nocturno Mixto}
+# Parsing the JSON data
+puts 'Parsing data from schools....'
+parsed_schools = JSON.parse(File.read('db/seeds/sinaloa.json'))
 
-
-# Hit the IMCO API
-puts 'Hitting the API...'
-raw_json = RestClient.get('http://api.imco.org.mx/imco-compara-escuela/web_service.php?accion=datos.generales.escuela.x.municipio&id_entidad=1909')
-response = JSON.parse(raw_json)
-
-# 148890 - Culiacán Rosales
+# Saving the Schools to the DB
 puts 'Creating schools....'
-response['localidades']['148890']['datos_escuelas'].each do |key, val|
-  unless val['nombre'].blank?
-    values = {
-      cct: val['cct'],
-      name: val['nombre'].try(:capitalize),
-      address: val['domicilio'].try(:capitalize),
-      between_street_1: val['entre_calle_1'].try(:capitalize),
-      between_street_2: val['entre_calle_2'].try(:capitalize),
-      suburb: val['colonia'].try(:capitalize),
-      zip_code: val['codigo_postal'],
-      phone_number: val['telefono'],
-      phone_extension: val['telextension'],
-      fax: val['fax'],
-      fax_extension: val['fax_extension'],
-      email: val['correo_electronico'],
-      web_page: val['pagina_web'],
-      altitude: val['altitud'],
-      longitude: val['longitud'],
-      latitude: val['latitud'],
-      kind: 'Pública',
-      grade: GRADES.sample,
-      shift: SHIFTS.sample,
-      state_rank: rand(1..1055),
-      city_rank: rand(1..1055),
-      total_students: rand(300..500),
-      total_evaluated_students: rand(300..500),
-      educational_semaphore: 'De panzaso',
-      total_teachers: rand(1..30),
-      budget: '1000000.00',
-      availability: rand(0..100),
+parsed_schools.each do |school|
+  unless school['nombre'].blank?
+    data = {
+      imco_id: school['id'],
+      cct: school['cct'],
+      name: school['nombre'].try(:capitalize),
+      address: school['domicilio'].try(:capitalize),
+      between_street_1: school['entre_calle_1'].try(:capitalize),
+      between_street_2: school['entre_calle_2'].try(:capitalize),
+      suburb: school['colonia'].try(:capitalize),
+      zip_code: school['codigo_postal'],
+      phone_number: school['telefono'],
+      phone_extension: school['telextension'],
+      fax: school['fax'],
+      fax_extension: school['faxextension'],
+      email: school['correo_electronico'],
+      web_page: school['pagina_web'],
+      altitude: school['altitud'],
+      longitude: school['longitud'],
+      latitude: school['latitud'],
+      kind: school['privada_publica'].try(:capitalize),
+      grade: school['nivel'].try(:capitalize),
+      shift: school['turno'].try(:capitalize),
+      state_rank: school['posicion_estatal'],
+      city_rank: school['posicion_municipal'],
+      enlace_results: school['resultados_enlace'],
+      total_students: school['num_alumnos'],
+      total_evaluated_students: school['total_alumnos_evaluados'],
+      educational_semaphore: school['semaforo'],
+      total_teachers: school['num_personal'],
+      level: school['tipo'],
+      contact_info: {name: 'Juan Orozco', position: 'Director', schedule: '9:00 - 10:00' }
     }
-    School.create(values)
+    School.create(data)
   end
 end

@@ -63,8 +63,8 @@
             <td><%= index+1 %> </td>
             <td><%= link_to school.name, school_path(school), class: 'school-name' %> </td>
             <td><%= school.distance.round(2) %> km </td>
-            <td><%= school.availability %> </td>
-            <td><%= school.city_rank %></td>
+            <td><%= t('helpers.not_available') %> </td>
+            <td><%= school.city_rank || t('helpers.not_available') %></td>
           </tr>
         <% end%>
       </table>

@@ -2,7 +2,7 @@
 
 <!-- SHOWCASE -->
 <div class='school-showcase l-bl-separation'>
-  <div class='school-showcase-pic' style="background-image: url('<%= image_path('escuela_default.png') %>')"></div>
+  <div class='school-showcase-pic' style="background-image: url(<%= asset_path('escuela_default.png') %>)"></div>
   <div class='school-showcase-wrapper'>
     <div class='step-title l-gallery-title'>
       <h1 class='step-line'><%= @school.name %></h1><br/>
@@ -33,26 +33,45 @@
         <div class='col-md-4'>
           <div class='school-stat'>
             <p class='school-stat-name'>Cupo Máximo</p>
-            <p class='school-stat-value'>50 Alumnos</p>
+            <p class='school-stat-value'>
+              <% if @school.availability_data_valid? %>
+                <%= "#{@school.max_availability} Alumnos" %>
+              <% else %>
+                <%=  t('helpers.not_available') %>
+              <% end %>
+            </p>
           </div>
         </div>
         <div class='col-md-4'>
           <div class='school-stat'>
             <p class='school-stat-name'>Cupo Actual</p>
-            <p class='school-stat-value'>30 Alumnos</p>
+            <p class='school-stat-value'>
+              <% if @school.availability_data_valid? %>
+                <%= "#{@school.preregistered_students_count} Alumnos" %>
+              <% else %>
+                <%=  t('helpers.not_available') %>
+              <% end %>
+            </p>
           </div>
         </div>
         <div class='col-md-4'>
           <div class='school-stat'>
             <p class='school-stat-name'>Lugares Disponibles</p>
-            <p class='school-stat-value'>20 Alumnos</p>
+            <p class='school-stat-value'>
+              <% if @school.availability_data_valid? %>
+                <%= "#{@school.availability} Alumnos" %>
+              <% else %>
+                <%=  t('helpers.not_available') %>
+              <% end %>
+            </p>
           </div>
         </div>
       </div>
 
       <div class='white-wrapper l-bl-med-separation'>
-        <div id='gmap-school-show' data-lat="<%= @school.latitude %>" data-lng="<%= @school.longitude%>">
+        <div id='gmap-school-show' data-lat="<%= @school.latitude %>" data-lng="<%= @school.longitude%>" class='l-bl-med-separation'>
         </div>
+        <p><b>Dirección:</b> <%= @school.full_address %></p>
       </div>
 
       <div class='step'>
@@ -60,10 +79,21 @@
           <p class='step-definition-title step-definition-title-user'>Información de contacto</p>
           <div class='step-definition-content'>
             <ul class='step-definition-list'>
-              <li class='indicator-right short'>Estudiantes con hermanos en la escuela<span class='list-indicator'>Director</span> </li>
+              <li class='indicator-right short'><%= @school.contact_name %><span class='list-indicator'><%= @school.contact_position%></span> </li>
               <li class='clearfix no-indicator'>
-                Teléfono: (81) 1223.31234
-                <span class='pull-right'>Horarios de Atención: 9:00 AM a 6:00 PM</span>
+                <span>
+                  <%= "Teléfono: #{number_to_phone(@school.phone_number)}" if @school.phone_number %>
+                  <%= "Fax: #{number_to_phone(@school.fax)}" if @school.fax %>
+                </span>
+                <span class='pull-right'>Horarios de Atención: <%= @school.contact_hours %></span>
+              </li>
+              <li class='clearfix no-indicator'>
+                <span class='pull-left'>
+                  Página Web: <%= @school.web_page || t('helpers.not_available') %>
+                </span>
+                <span class='pull-right'>
+                   Coreo electrónico: <%= @school.email || t('helpers.not_available') %>
+                </span>
               </li>
             </ul>
           </div>
@@ -74,17 +104,21 @@
 
     <div class='col-md-4'>
       <div class='rank l-bl-med-separation'>
-        <p class='rank-position'>1 LUGAR / DE 100</p>
-        <p>Posición en ciudad</p>
+        <% unless @school.city_rank.nil? %>
+          <p class='rank-position'>
+            <%= @school.city_rank %> LUGAR / DE <%= School.count_for_similar_to(@school)%>
+          </p>
+          <p>Posición en ciudad</p>
+        <% end %>
+        <p>No hay datos sobre su posición en la ciudad</p>
       </div>
 
       <div class='properties'>
         <ul class='l-bl-med-separation'>
           <li class='property-header'>SEMÁFORO EDUCATIVO</li>
-          <li class='check'>Excelente</li>
-          <li>Bien</li>
-          <li>De Panzaso</li>
-          <li>Reprobado</li>
+          <% school_educational_semaphore_list_el(@school).each do |li| %>
+            <%= li %>
+          <% end %>
         </ul>
         <ul class='l-bl-med-separation'>
           <li class='property-header'>PROGRAMAS</li>
