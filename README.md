@@ -1,6 +1,8 @@
 ## Elige Tu Escuela
 
-Elige Tu Escuela te ayuda a encontrar tu escuela.
+Elige Tu Escuela permite a padres de familia visualizar perfiles e 
+información de escuelas públicas para elegir la adecuada a las necesidades 
+de sus hijos y de la familia, facilitando su preinscripción en línea.
 
 [Wiki](https://github.com/CodeandoMexico/EligeTuEscuela/wiki) |
 [Bugtracker](https://github.com/CodeandoMexico/EligeTuEscuela/issues) |
@@ -19,7 +21,7 @@ Llevamos toda la conversación en nuestra sección de [issues](https://github.co
 ### Contribuye
 
 Elige Tu Escuela es una iniciativa que requiere de muchas manos para lograr a ser el mejor
-sistema de localización de escuelas en México.
+sistema de preinscripciones de escuelas públicas en México.
 Buscamos que el proyecto sea un resultado colaborativo de la comunidad; puedes apoyarnos con [código](https://github.com/CodeandoMexico/EligeTuEscuela/pulls), [ideas](https://github.com/CodeandoMexico/EligeTuEscuela/issues), [traducciones](https://github.com/CodeandoMexico/EligeTuEscuela/tree/master/config/locales),
 [reportando bugs](https://github.com/CodeandoMexico/EligeTuEscuela/issues) y/o [replicando](https://github.com/CodeandoMexico/EligeTuEscuela) la aplicación en tu ciudad.
 
@@ -28,7 +30,7 @@ Consulta la [guía completa](https://github.com/CodeandoMexico/EligeTuEscuela/bl
 ### Equipo
 
 El proyecto ha sido iniciado por [Codeando México](https://github.com/CodeandoMexico?tab=members)
-e [IMCO](http://imco.org.mx/home/)
+y el [Instituto Mexico para la Competitividad](http://imco.org.mx/home/)
 
 ### Licencia
 
